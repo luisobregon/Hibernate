@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2019 10:10:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Producto" table="producto" catalog="venta_p" optimistic-lock="version">
+        <id name="idProducto" type="java.lang.Integer">
+            <column name="id_producto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="marca" class="modelos.Marca" fetch="select">
+            <column name="id_marca" length="11" not-null="true" />
+        </many-to-one>
+        <many-to-one name="presentacion" class="modelos.Presentacion" fetch="select">
+            <column name="id_presentacion" length="11" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proveedor" class="modelos.Proveedor" fetch="select">
+            <column name="id_proveedor" length="11" not-null="true" />
+        </many-to-one>
+        <many-to-one name="zona" class="modelos.Zona" fetch="select">
+            <column name="id_zona" length="11" not-null="true" />
+        </many-to-one>
+        <property name="codigo" type="int">
+            <column name="codigo" not-null="true" />
+        </property>
+        <property name="descripcionProducto" type="string">
+            <column name="descripcion_producto" length="100" not-null="true" />
+        </property>
+        <property name="precio" type="double">
+            <column name="precio" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="stock" not-null="true" />
+        </property>
+        <property name="iva" type="int">
+            <column name="iva" not-null="true" />
+        </property>
+        <property name="peso" type="double">
+            <column name="peso" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
